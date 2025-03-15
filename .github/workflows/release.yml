@@ -21,17 +21,17 @@ jobs:
           mkdir -p /tmp/grass
           cp qmm.yaml /tmp/grass
           cp qmm.png /tmp/grass
-          rsync -a --exclude={'.gitignore'} grass.quail/ /tmp/grass/
+          rsync -a --exclude={'.gitignore', '.vscode'} grass.quail/ /tmp/grass/
           cd /tmp
           echo "Zipping files..."
-          zip -r qmm.zip grass
+          zip -r qmm.zip grass/*
           mv qmm.zip $GITHUB_WORKSPACE/qmm.zip
 
       # Upload the ZIP file as an artifact
       - name: Upload ZIP file
         uses: actions/upload-artifact@v4
         with:
-          name: qmm.zip
+          name: qmm-v1.0.${{ github.run_number }}.zip
           path: qmm.zip
       - uses: "marvinpinto/action-automatic-releases@latest"
         if: github.ref == 'refs/heads/main'

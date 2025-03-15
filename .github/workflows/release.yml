@@ -24,9 +24,8 @@ jobs:
           cp -r grass.quail/* /tmp/grass
           rm -rf /tmp/grass/.github
           rm -rf /tmp/grass/.vscode
-          cd /tmp
-          echo "Zipping files..."
-          zip -r qmm.zip grass/*
+          cd /tmp/grass
+          zip -r qmm.zip .
           mv qmm.zip $GITHUB_WORKSPACE/qmm-v1.0.${{ github.run_number }}.zip
 
       # Upload the ZIP file as an artifact

@@ -21,7 +21,9 @@ jobs:
           mkdir -p /tmp/grass
           cp qmm.yaml /tmp/grass
           cp qmm.png /tmp/grass
-          rsync -a --exclude={'.gitignore', '.vscode'} grass.quail/ /tmp/grass/
+          cp -r grass.quail/* /tmp/grass
+          rm -rf /tmp/grass/.github
+          rm -rf /tmp/grass/.vscode
           cd /tmp
           echo "Zipping files..."
           zip -r qmm.zip grass/*

@@ -7,12 +7,6 @@ on:
   workflow_dispatch:
 
 jobs:
-  build_go:
-    runs-on: windows-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
   zip_files:
     runs-on: ubuntu-latest
 

@@ -1,0 +1,11 @@
+// wcemu v0.0.1
+// This file was created by quail v1.5.9
+// Original file: global6_chr.wld
+
+INCLUDE "D05_SKE.WCE"
+INCLUDE "L01_SKE.WCE"
+INCLUDE "L02_SKE.WCE"
+INCLUDE "O01_SKE.WCE"
+INCLUDE "P01_SKE.WCE"
+INCLUDE "P02_SKE.WCE"
+INCLUDE "P03_SKE.WCE"

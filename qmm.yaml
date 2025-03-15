@@ -1,0 +1,9 @@
+qmm:
+  - name: "Classic Robes"
+    quail: v1.5.9
+    image: "qmm.png"
+    description: |
+      Darius's Robe Fix
+      - This adds to all classic player models robes for all classes.
+      - Changes your global_chr.s3d and global4_chr.s3d
+      - Extract this zip to your game folder, it will likely ask you to overwrite files. You may want to consider backing these up.    

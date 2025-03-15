@@ -27,14 +27,14 @@ jobs:
           cd /tmp
           echo "Zipping files..."
           zip -r qmm.zip grass/*
-          mv qmm.zip $GITHUB_WORKSPACE/qmm.zip
+          mv qmm.zip $GITHUB_WORKSPACE/qmm-v1.0.${{ github.run_number }}.zip
 
       # Upload the ZIP file as an artifact
       - name: Upload ZIP file
         uses: actions/upload-artifact@v4
         with:
           name: qmm-v1.0.${{ github.run_number }}.zip
-          path: qmm.zip
+          path: qmm-v1.0.${{ github.run_number }}.zip
       - uses: "marvinpinto/action-automatic-releases@latest"
         if: github.ref == 'refs/heads/main'
         with:
@@ -43,4 +43,4 @@ jobs:
           prerelease: false
           title: "v1.0.${{ github.run_number }}"
           files: |
-            qmm.zip
+            qmm-v1.0.${{ github.run_number }}.zip

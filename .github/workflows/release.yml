@@ -24,16 +24,17 @@ jobs:
           cp qmm.png /tmp/grass
           rsync -a --exclude={'.gitignore'} grass.quail/ /tmp/grass/
           cd /tmp
+          REPO_NAME=$(basename ${{ github.repository }})
           echo "Zipping files..."
-          zip -r ${{ github.repository }}.zip grass
-          mv ${{ github.repository }}.zip $GITHUB_WORKSPACE/${{ github.repository }}.zip
+          zip -r $REPO_NAME.zip grass
+          mv $REPO_NAME.zip $GITHUB_WORKSPACE/$REPO_NAME.zip
 
       # Upload the ZIP file as an artifact
       - name: Upload ZIP file
         uses: actions/upload-artifact@v4
         with:
           name: ${{ github.repository }}
-          path: ${{ github.repository }}.zip
+          path: $REPO_NAME.zip
       - uses: "marvinpinto/action-automatic-releases@latest"
         if: github.ref == 'refs/heads/main'
         with:
@@ -42,4 +43,4 @@ jobs:
           prerelease: false
           title: "${{ github.repository }}"
           files: |
-            ${{ github.repository }}.zip
+            $REPO_NAME.zip

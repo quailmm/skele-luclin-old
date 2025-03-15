@@ -22,8 +22,9 @@ jobs:
           mkdir -p /tmp/grass
           cp qmm.yaml /tmp/grass
           cp qmm.png /tmp/grass
-          rsync -a --exclude={'.gitignore'} grass.quail/ /tmp/grass
+          rsync -a --exclude={'.gitignore'} grass.quail/ /tmp/grass/
           cd /tmp
+          echo "Zipping files..."
           zip -r ${{ github.repository }}.zip grass
           mv ${{ github.repository }}.zip $GITHUB_WORKSPACE/${{ github.repository }}.zip
 
